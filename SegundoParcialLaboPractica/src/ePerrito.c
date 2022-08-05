@@ -183,6 +183,131 @@ int ePerrito_getRaza(ePerrito* this, char* raza)
 	return seCargo;
 }
 
+int ePerrito_setCantidadRacion(ePerrito* this, float cantidadRacion)
+{
+	int seCargo=-1;
+
+	if(this != NULL && cantidadRacion >= 0)
+	{
+		this->cantidadComidaRacion=cantidadRacion;
+		seCargo=0;
+	}
+
+	return seCargo;
+}
+
+int ePerrito_getCantidadRacion(ePerrito* this, float* cantidadRacion)
+{
+	int seCargo=-1;
+
+	if(this != NULL && cantidadRacion != NULL)
+	{
+		*cantidadRacion=this->cantidadComidaRacion;
+		seCargo=0;
+	}
+
+	return seCargo;
+}
+
+void ePerrito_imprimirPerrito(ePerrito* this)
+{
+	int id;
+	char nombre[50];
+	float peso;
+	int edad;
+	char raza[50];
+
+	if(this != NULL)
+	{
+
+		ePerrito_getId(this, &id);
+		ePerrito_getNombre(this, nombre);
+		ePerrito_getPeso(this, &peso);
+		ePerrito_getEdad(this, &edad);
+		ePerrito_getRaza(this, raza);
+
+		printf("%-5d %-15s %-20.2f %-20d %-15s\n", id, nombre, peso, edad, raza);
+	}
+}
+
+
+void ePerrito_imprimirPerritoRacion(ePerrito* this)
+{
+	int id;
+	char nombre[50];
+	float peso;
+	int edad;
+	char raza[50];
+	float cantidadComidaRacion;
+
+	if(this != NULL)
+	{
+
+		ePerrito_getId(this, &id);
+		ePerrito_getNombre(this, nombre);
+		ePerrito_getPeso(this, &peso);
+		ePerrito_getEdad(this, &edad);
+		ePerrito_getRaza(this, raza);
+		ePerrito_getCantidadRacion(this, &cantidadComidaRacion);
+
+		printf("%-5d %-15s %-20.2f %-20d %-15s %-20.2f\n", id, nombre, peso, edad, raza, cantidadComidaRacion);
+	}
+}
+
+int ePerrito_sortByName(void* perritoI, void* perritoJ)
+{
+	int retorno;
+	char nombreI[100];
+	char nombreJ[100];
+
+	ePerrito* pPerritoI;
+	ePerrito* pPerritoJ;
+
+	if(perritoI != NULL && perritoJ != NULL)
+	{
+		pPerritoI=(ePerrito*)perritoI;
+		pPerritoJ=(ePerrito*)perritoJ;
+
+		ePerrito_getNombre(pPerritoI, nombreI);
+		ePerrito_getNombre(pPerritoJ, nombreJ);
+
+		retorno=strcmp(nombreI,nombreJ);
+		if(retorno < 0)
+		{
+			retorno=-1;
+		}
+		else
+		{
+			if(retorno> 0)
+			{
+				retorno=1;
+			}
+		}
+	}
+
+	return retorno;
+}
+
+void ePerrito_calculoComidaRacion(void* perrito)
+{
+	ePerrito* pPerrito;
+	float peso;
+	float totalComidaRacion;
+
+	if(perrito != NULL)
+	{
+		pPerrito=(ePerrito*)perrito;
+
+		ePerrito_getPeso(pPerrito, &peso);
+
+		totalComidaRacion= peso*23;
+
+		ePerrito_setCantidadRacion(pPerrito, totalComidaRacion);
+
+	}
+}
+
+
 void ePerrito_deletePerrito(ePerrito* this)
 {
 	if(this != NULL)

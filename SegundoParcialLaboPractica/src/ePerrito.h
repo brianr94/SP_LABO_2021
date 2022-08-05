@@ -17,6 +17,7 @@ typedef struct
 	float peso;
 	int edad;
 	char raza[TAMSTR];
+	float cantidadComidaRacion;
 
 }ePerrito;
 
