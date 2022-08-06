@@ -6,10 +6,13 @@
  */
 
 
-#include "parser.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "parser.h"
 #include "ePerrito.h"
+#include "LinkedList.h"
+#include <ctype.h>
+
 
 int parser_perritoFromText(FILE* pFile , LinkedList* pArrayListPerrito)
 {
@@ -26,12 +29,12 @@ int parser_perritoFromText(FILE* pFile , LinkedList* pArrayListPerrito)
 	if(pFile != NULL && pArrayListPerrito != NULL)
 	{
 
-		fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n", id, nombre, peso, edad, raza);
+		fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n", id, nombre, peso, edad, raza);
 
 		do
 		{
 
-			cantidadLineas=fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n", id, nombre, peso, edad, raza);
+			cantidadLineas=fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n", id, nombre, peso, edad, raza);
 
 			if(cantidadLineas==5)
 			{

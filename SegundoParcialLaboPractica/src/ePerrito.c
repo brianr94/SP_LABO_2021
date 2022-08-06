@@ -307,6 +307,37 @@ void ePerrito_calculoComidaRacion(void* perrito)
 	}
 }
 
+int ePerrito_filtrarGalgos(void* perritos)
+{
+	int retorno=-1;
+	char nombreAux[100];
+	int pesoAux;
+	int edadAux;
+
+	ePerrito* perrito;
+
+	if(perritos != NULL)
+	{
+		perrito=(ePerrito*) perritos;
+
+		ePerrito_getNombre(perrito, nombreAux);
+		ePerrito_getPeso(perrito, &pesoAux);
+		ePerrito_getEdad(perrito, &edadAux);
+
+		if(strcmp(nombreAux,"Galgo")==0 && edadAux>9 && pesoAux<201)
+		{
+			retorno=0;
+		}
+		else
+		{
+			retorno=1;
+		}
+
+	}
+
+	return retorno;
+
+}
 
 void ePerrito_deletePerrito(ePerrito* this)
 {

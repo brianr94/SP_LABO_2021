@@ -7,13 +7,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "controller.c"
+#include "controller.h"
 #include "parser.h"
-
+#include "LinkedList.h"
+#include "ePerrito.h"
 
 int controller_cargaDeArhivoTexto(char* path , LinkedList* pArrayListPerrito)
 {
-	int retorno=1;
+	int retorno=-1;
 	FILE* pFile;
 
 	pFile= fopen(path,"r");
@@ -61,7 +62,7 @@ int controller_saveAsText(LinkedList* pArrayListPerrito, char* path)
 				if(perrito != NULL)
 				{
 					ePerrito_getId(perrito, &idAux);
-					ePeerito_getNombre(perrito, nombre);
+					ePerrito_getNombre(perrito, nombre);
 					ePerrito_getPeso(perrito, &pesoAux);
 					ePerrito_getEdad(perrito,&edadAux);
 					ePerrito_getRaza(perrito, raza);
@@ -84,3 +85,96 @@ int controller_saveAsText(LinkedList* pArrayListPerrito, char* path)
 
     return retorno;
 }
+
+
+int controller_listarPerritos(LinkedList* pArrayListPerrito)
+{
+
+	int retorno=-1;
+	int len;
+
+	ePerrito perrito;
+
+	if(pArrayListPerrito != NULL)
+	{
+		len=ll_len(pArrayListPerrito);
+		printf("\n%-5s %-15s %-20s %-20s %-15s %-20s\n","ID", "Nombre", "Peso", "Edad", "Raza");
+		for(int i=0; i<len;i++)
+		{
+			perrito=ll_get(pArrayListPerrito, i);
+
+			ePerrito_imprimirPerrito(perrito);
+		}
+		retorno= 0;
+	}
+
+	return retorno;
+}
+
+int controller_listarPerritosRacionComida(LinkedList* pArrayListPerrito)
+{
+
+	int retorno=-1;
+	int len;
+
+	ePerrito perrito;
+
+	if(pArrayListPerrito != NULL)
+	{
+		len=ll_len(pArrayListPerrito);
+		printf("\n%-5s %-15s %-20s %-20s %-15s %-20s %-20s\n","ID", "Nombre", "Peso", "Edad", "Raza","CantidadComidaRacion");
+		for(int i=0; i<len;i++)
+		{
+			perrito=ll_get(pArrayListPerrito, i);
+
+			ePerrito_imprimirPerritoRacion(perrito);
+		}
+		retorno= 0;
+	}
+
+	return retorno;
+}
+
+int controller_asignacionTotalComidaRacion(LinkedList* pArrayListPerrito)
+{
+	int retorno=-1;
+
+	if(pArrayListPerrito != NULL)
+	{
+
+		ll_map(pArrayListPerrito, ePerrito_calculoComidaRacion);
+		retorno=0;
+	}
+
+	return retorno;
+}
+
+int controller_filterByGalgo(LinkedList* pArrayListPerrito)
+{
+	int retorno=-1;
+
+	LinkedList* listaFiltrada=NULL;
+
+	if(pArrayListPerrito != NULL)
+	{
+
+		ll_filter(listaFiltrada, ePerrito_filtrarGalgos);
+		retorno=0;
+	}
+
+	return retorno;
+}
+
+int controller_ordenarPerroPorNombre(LinkedList* pArrayListPerrito)
+{
+	int retorno=-1;
+
+	if(pArrayListPerrito != NULL)
+	{
+		ll_sort(pArrayListPerrito, ePerrito_sortByName, 1);
+		retorno=0;
+	}
+
+	return retorno;
+}
+
