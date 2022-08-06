@@ -8,13 +8,14 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "LinkedList.h"
 #include "parser.h"
 #include "ePerrito.h"
-#include "LinkedList.h"
+#include "controller.h"
 #include <ctype.h>
 
 
-int parser_perritoFromText(FILE* pFile , LinkedList* pArrayListPerrito)
+int parser_PerritoFromText(FILE* pFile, LinkedList* pArrayListPerrito)
 {
 	ePerrito* perrito=NULL;
 	char id[50];

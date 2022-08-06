@@ -8,11 +8,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "controller.h"
+#include "ePerrito.h"
 #include "parser.h"
 #include "LinkedList.h"
-#include "ePerrito.h"
 
-int controller_cargaDeArhivoTexto(char* path , LinkedList* pArrayListPerrito)
+int controller_cargaDeArhivoTexto(char* path, LinkedList* pArrayListPerrito)
 {
 	int retorno=-1;
 	FILE* pFile;
@@ -21,8 +21,7 @@ int controller_cargaDeArhivoTexto(char* path , LinkedList* pArrayListPerrito)
 
 	if(path != NULL && pArrayListPerrito != NULL)
 	{
-		retorno=parser_perritoFromText(pFile, pArrayListPerrito);
-
+		retorno=parser_PerritoFromText(pFile, pArrayListPerrito);
 	}
 
 
@@ -93,12 +92,12 @@ int controller_listarPerritos(LinkedList* pArrayListPerrito)
 	int retorno=-1;
 	int len;
 
-	ePerrito perrito;
+	ePerrito* perrito;
 
 	if(pArrayListPerrito != NULL)
 	{
 		len=ll_len(pArrayListPerrito);
-		printf("\n%-5s %-15s %-20s %-20s %-15s %-20s\n","ID", "Nombre", "Peso", "Edad", "Raza");
+		printf("\n%-5s %-15s %-20s %-20s %-15s\n","ID", "Nombre", "Peso", "Edad", "Raza");
 		for(int i=0; i<len;i++)
 		{
 			perrito=ll_get(pArrayListPerrito, i);
@@ -117,12 +116,12 @@ int controller_listarPerritosRacionComida(LinkedList* pArrayListPerrito)
 	int retorno=-1;
 	int len;
 
-	ePerrito perrito;
+	ePerrito* perrito;
 
 	if(pArrayListPerrito != NULL)
 	{
 		len=ll_len(pArrayListPerrito);
-		printf("\n%-5s %-15s %-20s %-20s %-15s %-20s %-20s\n","ID", "Nombre", "Peso", "Edad", "Raza","CantidadComidaRacion");
+		printf("\n%-5s %-15s %-20s %-20s %-15s %-20s\n","ID", "Nombre", "Peso", "Edad", "Raza","CantidadComidaRacion");
 		for(int i=0; i<len;i++)
 		{
 			perrito=ll_get(pArrayListPerrito, i);
