@@ -312,7 +312,7 @@ int ePerrito_filtrarGalgos(void* perritos)
 {
 	int retorno=-1;
 	char razaAux[100];
-	float pesoAux;
+	float cantidadRacionAux;
 	int edadAux;
 
 	ePerrito* perrito;
@@ -322,10 +322,10 @@ int ePerrito_filtrarGalgos(void* perritos)
 		perrito=(ePerrito*) perritos;
 
 		ePerrito_getRaza(perrito, razaAux);
-		ePerrito_getPeso(perrito, &pesoAux);
+		ePerrito_getCantidadRacion(perrito, &cantidadRacionAux);
 		ePerrito_getEdad(perrito, &edadAux);
 
-		if(strcmp(razaAux,"Galgo")==0 && edadAux>9 && pesoAux<201)
+		if(strcmp(razaAux,"Galgo")==0 && edadAux>9 && cantidadRacionAux<201)
 		{
 			retorno=0;
 		}
