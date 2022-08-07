@@ -8,6 +8,7 @@
 #include "ePerrito.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 ePerrito* ePerrito_newPerrito()

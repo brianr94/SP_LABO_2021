@@ -4,14 +4,11 @@
  *  Created on: 4 ago. 2022
  *      Author: brian
  */
-
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "LinkedList.h"
 #include "parser.h"
 #include "ePerrito.h"
-#include "controller.h"
 #include <ctype.h>
 
 

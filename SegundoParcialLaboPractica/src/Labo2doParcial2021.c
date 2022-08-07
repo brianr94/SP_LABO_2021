@@ -45,7 +45,7 @@ int main(void) {
 	do
 	{
 		pedirNumeroEnteroValidado(&opcion, "----------------------------------\n"
-											"1.Cargar Archivos de Perritos\n"
+											"1. Cargar Archivos de Perritos\n"
 											"2. Mostrar perritos por nombre Ascendente\n"
 											"3. Calcular cantidad comida racionada\n"
 											"4. mostrar perritos con comidas raciondas\n"
@@ -55,7 +55,7 @@ int main(void) {
 											"----------------------------------\n"
 											"Ingrese una opcion: ",
 											"----------------------------------\n"
-											"1.Cargar Archivos de Perritos\n"
+											"1. Cargar Archivos de Perritos\n"
 											"2. Mostrar perritos por nombre Ascendente\n"
 											"3. Calcular cantidad comida racionada\n"
 											"4. mostrar perritos con comidas raciondas\n"
@@ -92,8 +92,13 @@ int main(void) {
 			case 3:
 				if(textoCargado==1)
 				{
-					controller_listarPerritosRacionComida(perritos);
-					flagRacionComida=1;
+					if(controller_asignacionTotalComidaRacion(perritos)==0)
+					{
+						printf("\n\nSe hizo correctamente el calculo!!!\n\n");
+						controller_listarPerritosRacionComida(perritos);
+						flagRacionComida=1;
+					}
+
 				}
 				else
 				{
@@ -116,9 +121,8 @@ int main(void) {
 				if(textoCargado== 1 && flagRacionComida==1)
 				{
 					printf("\n\nFiltrado correctamente!!!!\n\n");
-					if(controller_filterByGalgo(listaFiltrada) != -1)
+					if(controller_filterByGalgo(perritos) != -1)
 					{
-						controller_listarPerritosRacionComida(listaFiltrada);
 						flagListaFiltrada=1;
 					}
 				}
@@ -131,7 +135,7 @@ int main(void) {
 			case 6:
 				if(textoCargado==1 && flagListaFiltrada==1)
 				{
-					controller_saveAsText(listaFiltrada, "galgosFlaquits.csv");
+					controller_saveAsText(listaFiltrada, "galgosFlaquitos.csv");
 					flagGuardado=1;
 				}
 				else

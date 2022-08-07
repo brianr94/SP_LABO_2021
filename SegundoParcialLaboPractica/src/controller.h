@@ -8,6 +8,11 @@
 #ifndef CONTROLLER_H_
 #define CONTROLLER_H_
 
+#include <stdlib.h>
+#include <stdio.h>
+#include "LinkedList.h"
+#include "ePerrito.h"
+
 int controller_ordenarPerroPorNombre(LinkedList* pArrayListPerrito);
 int controller_filterByGalgo(LinkedList* pArrayListPerrito);
 int controller_asignacionTotalComidaRacion(LinkedList* pArrayListPerrito);

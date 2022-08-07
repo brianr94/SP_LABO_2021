@@ -152,13 +152,18 @@ int controller_filterByGalgo(LinkedList* pArrayListPerrito)
 {
 	int retorno=-1;
 
-	LinkedList* listaFiltrada=NULL;
+	LinkedList* listaFiltrada= NULL;
 
 	if(pArrayListPerrito != NULL)
 	{
 
-		ll_filter(listaFiltrada, ePerrito_filtrarGalgos);
+		listaFiltrada= ll_filter(pArrayListPerrito, ePerrito_filtrarGalgos);
 		retorno=0;
+	}
+
+	if(listaFiltrada != NULL)
+	{
+		controller_listarPerritosRacionComida(listaFiltrada);
 	}
 
 	return retorno;
