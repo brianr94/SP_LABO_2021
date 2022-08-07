@@ -122,10 +122,24 @@ int main(void) {
 				if(textoCargado== 1 && flagRacionComida==1)
 				{
 					printf("\n\nFiltrado correctamente!!!!\n\n");
-					if(controller_filterByGalgo(perritos) != -1)
+
+					listaFiltrada =ll_filter(perritos, ePerrito_filtrarGalgos);// alternativa a que se guarde la Linked List. DE ESTA MANERA FUNCIONA!!!!
+																			//Pero quiero hacerlo que funcione con la funcion Controller de ABAJO!!!
+																			//Para saberlo hacer con funciones!!!! Si es que se puede.
+					if(listaFiltrada != NULL)
 					{
+						controller_listarPerritosRacionComida(listaFiltrada);
 						flagListaFiltrada=1;
 					}
+
+					//No me guarda la lista filtrada porque queda en el scope de la funcion controller filterBy Galgo
+					//FILTRA LA LISTA PERO SE GUARDA VACIA en la opcion 6!!!!!
+				/*
+				//	if(controller_filterByGalgo(perritos) != -1)
+					//{
+					//	flagListaFiltrada=1;
+				//	}
+				 */
 				}
 				else
 				{
