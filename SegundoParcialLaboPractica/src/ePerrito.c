@@ -311,7 +311,7 @@ void ePerrito_calculoComidaRacion(void* perrito)
 int ePerrito_filtrarGalgos(void* perritos)
 {
 	int retorno=-1;
-	char nombreAux[100];
+	char razaAux[100];
 	float pesoAux;
 	int edadAux;
 
@@ -321,11 +321,11 @@ int ePerrito_filtrarGalgos(void* perritos)
 	{
 		perrito=(ePerrito*) perritos;
 
-		ePerrito_getNombre(perrito, nombreAux);
+		ePerrito_getRaza(perrito, razaAux);
 		ePerrito_getPeso(perrito, &pesoAux);
 		ePerrito_getEdad(perrito, &edadAux);
 
-		if(strcmp(nombreAux,"Galgo")==0 && edadAux>9 && pesoAux<201)
+		if(strcmp(razaAux,"Galgo")==0 && edadAux>9 && pesoAux<201)
 		{
 			retorno=0;
 		}

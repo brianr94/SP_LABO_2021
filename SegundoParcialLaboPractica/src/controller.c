@@ -152,7 +152,7 @@ int controller_filterByGalgo(LinkedList* pArrayListPerrito)
 {
 	int retorno=-1;
 
-	LinkedList* listaFiltrada= NULL;
+	LinkedList* listaFiltrada;
 
 	if(pArrayListPerrito != NULL)
 	{

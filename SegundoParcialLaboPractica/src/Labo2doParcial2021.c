@@ -71,7 +71,7 @@ int main(void) {
 		{
 
 			case 1:
-				if(controller_cargaDeArhivoTexto("perritos.csv", perritos) != -1)
+				if(controller_cargaDeArhivoTexto("perritos200.csv", perritos) != -1)
 				{
 					printf("\nArchivo cargado con exito!!!!!\n");
 					textoCargado=1;
