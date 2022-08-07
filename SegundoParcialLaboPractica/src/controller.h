@@ -14,7 +14,7 @@
 #include "ePerrito.h"
 
 int controller_ordenarPerroPorNombre(LinkedList* pArrayListPerrito);
-int controller_filterByGalgo(LinkedList* pArrayListPerrito);
+LinkedList* controller_filterByGalgo(LinkedList* pArrayListPerrito);
 int controller_asignacionTotalComidaRacion(LinkedList* pArrayListPerrito);
 int controller_listarPerritosRacionComida(LinkedList* pArrayListPerrito);
 int controller_listarPerritos(LinkedList* pArrayListPerrito);

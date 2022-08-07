@@ -148,17 +148,14 @@ int controller_asignacionTotalComidaRacion(LinkedList* pArrayListPerrito)
 	return retorno;
 }
 
-int controller_filterByGalgo(LinkedList* pArrayListPerrito)
+LinkedList* controller_filterByGalgo(LinkedList* pArrayListPerrito)//esta funcion retorna la lista filtrdad sin gurdarla. Luego se guarda desde afuera.
 {
-	int retorno=-1;
 
 	LinkedList* listaFiltrada;
 
 	if(pArrayListPerrito != NULL)
 	{
-
 		listaFiltrada= ll_filter(pArrayListPerrito, ePerrito_filtrarGalgos);
-		retorno=0;
 	}
 
 	if(listaFiltrada != NULL)
@@ -166,7 +163,7 @@ int controller_filterByGalgo(LinkedList* pArrayListPerrito)
 		controller_listarPerritosRacionComida(listaFiltrada);
 	}
 
-	return retorno;
+	return listaFiltrada;
 }
 
 int controller_ordenarPerroPorNombre(LinkedList* pArrayListPerrito)
