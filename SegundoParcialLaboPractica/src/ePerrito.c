@@ -312,7 +312,7 @@ int ePerrito_filtrarGalgos(void* perritos)
 {
 	int retorno=-1;
 	char nombreAux[100];
-	int pesoAux;
+	float pesoAux;
 	int edadAux;
 
 	ePerrito* perrito;
@@ -331,7 +331,7 @@ int ePerrito_filtrarGalgos(void* perritos)
 		}
 		else
 		{
-			retorno=1;
+			retorno=-1;
 		}
 
 	}
