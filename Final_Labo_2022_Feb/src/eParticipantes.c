@@ -169,7 +169,7 @@ int eParticipantes_getPromedio(eParticipantes* this, int* promedio)
 
 	if(this != NULL && promedio != NULL)
 	{
-		*promedio=this->tiempo;
+		*promedio=this->promedio;
 		seCargo=0;
 	}
 

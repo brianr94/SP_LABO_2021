@@ -3,6 +3,7 @@
 #include "LinkedList.h"
 #include "eParticipantes.h"
 #include "informes.h"
+#include <string.h>
 
 
 
@@ -134,4 +135,39 @@ void eParticipantes_asignarPromedio(void* eParticipante)
 
 		eParticipantes_setPromedio(participante, promedioAux);
 	}
+}
+
+int eParticipantes_SortByCategoryAndAverage(void* participante1, void* participante2)
+{
+	int retorno=-1;
+	int comparacion;
+	int promedioI;
+	int promedioJ;
+	char categoriaI[100];
+	char categoriaJ[100];
+
+	eParticipantes* pParticipanteI;
+	eParticipantes* pParticipanteJ;
+
+	if(participante1 != NULL && participante2 != NULL)
+	{
+
+		pParticipanteI=(eParticipantes*)participante1;
+		pParticipanteJ=(eParticipantes*)participante2;
+
+		eParticipantes_getCategoria(pParticipanteI, categoriaI);
+		eParticipantes_getCategoria(pParticipanteJ, categoriaJ);
+		eParticipantes_getPromedio(pParticipanteI, &promedioI);
+		eParticipantes_getPromedio(pParticipanteJ, &promedioJ);
+
+		comparacion=strcmp(categoriaI,categoriaJ);
+
+		if(comparacion == 0 && (comparacion == 0 && promedioI > promedioJ))
+		{
+			retorno=1;
+		}
+
+	}
+
+	return retorno;
 }
