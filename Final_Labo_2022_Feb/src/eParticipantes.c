@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "eParticipantes.h"
+#include <string.h>
 
 
 eParticipantes* newParticipantes()
@@ -85,13 +86,13 @@ int eParticipantes_setNombre(eParticipantes* this, char* nombre)
 	return seCargo;
 }
 
-int eParticipantes_getNombre(eParticipantes* this, char* categoria)
+int eParticipantes_getNombre(eParticipantes* this, char* nombre)
 {
 	int seCargo=-1;
 
-	if(this != NULL && categoria != NULL)
+	if(this != NULL && nombre != NULL)
 	{
-		strcpy(categoria,this->categoria);
+		strcpy(nombre,this->nombre);
 		seCargo=0;
 	}
 

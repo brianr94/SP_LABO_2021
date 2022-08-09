@@ -22,6 +22,7 @@ int main(void) {
 	int opcion;
 	int flagCargado;
 	int flagGuardado;
+	int flagPromedio;
 	int flagOpcion5;
 
 	LinkedList* listaParticipantes;
@@ -30,6 +31,7 @@ int main(void) {
 	flagOpcion5=0;
 	flagCargado=0;
 	flagGuardado=0;
+	flagPromedio=0;
 
 	listaParticipantes=ll_newLinkedList();
 	listaFiltrada=ll_newLinkedList();
@@ -61,10 +63,18 @@ int main(void) {
 		switch(opcion)
 		{
 			case 1:
-				if(controller_validateLoadFromText("enduro.csv", listaParticipantes) != -1)
+				if(flagCargado == 0)
 				{
-					flagCargado=1;
+					if(controller_validateLoadFromText("enduro.csv", listaParticipantes) != -1)
+					{
+						flagCargado=1;
+					}
 				}
+				else
+				{
+					printf("\nEl archivo ya se encuentra cargado!!!\n");
+				}
+
 				break;
 			case 2:
 				if(flagCargado == 1)
@@ -80,6 +90,8 @@ int main(void) {
 				if(flagCargado == 1)
 				{
 					controller_asignarPromedio(listaParticipantes);
+					printf("\n Los promedios han sido aignados correctamente!!!\n");
+					flagPromedio=1;
 				}
 				else
 				{
@@ -89,7 +101,7 @@ int main(void) {
 			case 4:
 				if(flagCargado == 1)
 				{
-					controller_filtrarPorCategoria(listaParticipantes);
+					controller_filtrarPorCategoria(listaFiltrada);
 				}
 				else
 				{
@@ -97,7 +109,7 @@ int main(void) {
 				}
 				break;
 			case 5:
-				if(flagCargado == 1)
+				if(flagCargado == 1 && flagPromedio == 1)
 				{
 					controller_participantesOrdenadoPorCategoria(listaParticipantes);
 					flagOpcion5=1;
