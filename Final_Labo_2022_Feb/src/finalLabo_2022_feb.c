@@ -89,9 +89,13 @@ int main(void) {
 			case 3:
 				if(flagCargado == 1)
 				{
-					controller_asignarPromedio(listaParticipantes);
-					printf("\n Los promedios han sido aignados correctamente!!!\n");
-					flagPromedio=1;
+					listaFiltrada=controller_asignarPromedio(listaParticipantes);//en este caso lo hicimos con una LL nueva, pero no hacia falta dejo el ejemplo por las dudas
+					if(listaFiltrada != NULL)									//en el controller.h deje las 2 funciones una generando una LL nueva y otra sin generar. para el miercoles
+					{
+						printf("\n Los promedios han sido aignados correctamente!!!\n");
+						flagPromedio=1;
+					}
+
 				}
 				else
 				{
@@ -99,7 +103,7 @@ int main(void) {
 				}
 				break;
 			case 4:
-				if(flagCargado == 1)
+				if(flagCargado == 1 && flagPromedio == 1)
 				{
 					controller_filtrarPorCategoria(listaFiltrada);
 				}
@@ -111,7 +115,7 @@ int main(void) {
 			case 5:
 				if(flagCargado == 1 && flagPromedio == 1)
 				{
-					controller_participantesOrdenadoPorCategoria(listaParticipantes);
+					controller_participantesOrdenadoPorCategoria(listaFiltrada);
 					flagOpcion5=1;
 				}
 				else
@@ -122,7 +126,7 @@ int main(void) {
 			case 6:
 				if(flagCargado == 1 && flagOpcion5 == 1)
 				{
-					controller_saveAsText("listaNueva.csv", listaParticipantes);
+					controller_saveAsText("listaPosiciones.csv", listaFiltrada);
 					flagGuardado=1;
 				}
 				else

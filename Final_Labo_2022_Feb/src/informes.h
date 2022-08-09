@@ -13,7 +13,8 @@ int eParticipantes_filterByMX2(void* eParticipante);
 int eParticipantes_filterByMX3(void* eParticipante);
 int eParticipantes_filterBySuperATV(void* eParticipante);
 void eParticipantes_asignarPromedio(void* eParticipante);
-int eParticipantes_SortByCategoryAndAverage(void* participante1, void* participante2);
+int eParticipantes_SortByAverage(void* participante1, void* participante2);
+int eParticipantes_SortByCategory(void* participante1, void* participante2);
 
 
 #endif /* INFORMES_H_ */

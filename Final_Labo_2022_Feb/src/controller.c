@@ -127,6 +127,21 @@ int controller_asignarPromedio(LinkedList* pArrayListParticipantes)
 	return retorno;
 }
 
+
+
+
+LinkedList* controller_asignarPromedio(LinkedList* pArrayListParticipantes)
+{
+	LinkedList* listafiltrada;
+
+	if(pArrayListParticipantes != NULL)
+	{
+		listafiltrada=ll_map(pArrayListParticipantes, eParticipantes_asignarPromedio);
+	}
+
+	return listafiltrada;
+}
+
 int controller_filtrarPorCategoria(LinkedList* pArrayListParticipantes)
 {
 	int retorno=-1;
@@ -199,7 +214,7 @@ int controller_participantesOrdenadoPorCategoria(LinkedList* pArrayListParticipa
 
 	if(pArrayListParticipantes != NULL)
 	{
-		if(ll_sort(pArrayListParticipantes, eParticipantes_SortByCategoryAndAverage, 1) != -1)
+		if(ll_sort(pArrayListParticipantes, eParticipantes_SortByCategory, 1) == 0 && ll_sort(pArrayListParticipantes, eParticipantes_SortByAverage, 1) == 0)
 		{
 			controller_listarParticipantes(pArrayListParticipantes);
 			retorno=0;
