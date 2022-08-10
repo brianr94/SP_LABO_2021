@@ -19,7 +19,7 @@ int pedirCadenaValidada(char* cadena,char* mensaje,char* mensajeError,int maxTam
 		fflush(stdin);
 		scanf("%[^\n]",cadenaAux);
 
-		while(strlen(cadenaAux)>maxTam || esNumero(cadenaAux)==-1 || validarSignos(cadenaAux)==0)
+		while(strlen(cadenaAux)>maxTam || esNumero(cadenaAux)==-1 || validarSignos(cadenaAux)==-1)
 		{
 			printf("%s",mensajeError);
 			fflush(stdin);

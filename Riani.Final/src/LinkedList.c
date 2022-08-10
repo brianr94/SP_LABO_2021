@@ -32,9 +32,11 @@ LinkedList* ll_newLinkedList(void)
  *
  */
 int ll_len(LinkedList* this)
-{   int returnAux= -1;
+{
+	int returnAux= -1;
 
-    if(this!=NULL){
+    if(this!=NULL)
+    {
     	returnAux = this->size;
     }
 
@@ -51,7 +53,8 @@ int ll_len(LinkedList* this)
  *
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
-{	Node* pNode = NULL;
+{
+	Node* pNode = NULL;
 	int len;
 
 	len = ll_len(this);
@@ -92,7 +95,8 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
  *
  */
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
-{	int returnAux = -1;
+{
+	int returnAux = -1;
 	Node* auxNodo = NULL;
 	Node* pNuevoNodo = NULL;
 
@@ -261,7 +265,8 @@ int ll_remove(LinkedList* this,int index)
  *
  */
 int ll_clear(LinkedList* this)
-{   int returnAux = -1;
+{
+	int returnAux = -1;
     int len;
     //Node* pNode = NULL;
 
@@ -291,7 +296,8 @@ int ll_clear(LinkedList* this)
  *
  */
 int ll_deleteLinkedList(LinkedList* this)
-{   int returnAux = -1;
+{
+	int returnAux = -1;
 
     if(this != NULL && ll_clear(this) == 0)
     {
@@ -310,7 +316,8 @@ int ll_deleteLinkedList(LinkedList* this)
  *
  */
 int ll_indexOf(LinkedList* this, void* pElement)
-{	int returnAux = -1;
+{
+	int returnAux = -1;
 	int len;
 
 	if(this != NULL)
@@ -339,7 +346,8 @@ int ll_indexOf(LinkedList* this, void* pElement)
  *
  */
 int ll_isEmpty(LinkedList* this)
-{	int returnAux = -1;
+{
+	int returnAux = -1;
 
 	if(this != NULL)
 	{
@@ -366,7 +374,8 @@ int ll_isEmpty(LinkedList* this)
  *
  */
 int ll_push(LinkedList* this, int index, void* pElement)
-{	int returnAux = -1;
+{
+	int returnAux = -1;
 
 	if(this != NULL && index>=0 && ll_len(this) >= index)
 	{
@@ -386,7 +395,8 @@ int ll_push(LinkedList* this, int index, void* pElement)
  *
  */
 void* ll_pop(LinkedList* this,int index)
-{	void* returnAux = NULL;
+{
+	void* returnAux = NULL;
 
 	if(this != NULL && index >=0 && ll_len(this) > index)
 	{
@@ -456,8 +466,6 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     	}
     }
 
-
-
     return returnAux;
 }
 
@@ -472,7 +480,8 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
                          (puntero a la nueva lista) Si ok
 */
 LinkedList* ll_subList(LinkedList* this,int from,int to)
-{	LinkedList* subList = NULL;
+{
+	LinkedList* subList = NULL;
     void* auxElement = NULL;
 
 	if(this!=NULL && from>=0 && from <ll_len(this) && to>from && to<=ll_len(this))
@@ -561,7 +570,8 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
  * Verificando que tanto el puntero this como el puntero a la funcion
  * fn sean distintos de NULL. Retorna la lista nueva lista filtrada.
  */
-LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element)){
+LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
+{
 	LinkedList* listFilter = NULL;
 	void* auxElement = NULL;
 	int len;
@@ -593,16 +603,21 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element)){
 * Verificando que tanto el puntero this como el puntero a la funcion
 * fn sean distintos de NULL. Retorna la lista completa.
 */
-LinkedList* ll_map(LinkedList* this, void (*fn)(void* element)){
+LinkedList* ll_map(LinkedList* this, void (*fn)(void* element))
+{
 	void* auxElement = NULL;
 	int len;
 
-	if(this!=NULL && fn != NULL){
+	if(this!=NULL && fn != NULL)
+	{
 		len = ll_len(this);
-		if(len>0){
-			for (int i = 0; i < len; i++) {
+		if(len>0)
+		{
+			for (int i = 0; i < len; i++)
+			{
 				auxElement = ll_get(this, i);
-				if(auxElement != NULL){
+				if(auxElement != NULL)
+				{
 					fn(auxElement);
 				}
 			}
@@ -611,3 +626,31 @@ LinkedList* ll_map(LinkedList* this, void (*fn)(void* element)){
 
 	return this;
 }
+
+
+int ll_count(LinkedList* this, int (*fn)(void* element))
+{
+	int len;
+	void* auxElement;
+	int acumulador;
+
+	acumulador = 0;
+
+	if(this != NULL && fn != NULL)
+	{
+		len = ll_len(this);
+		for(int i= 0; i<len; i++)
+		{
+			auxElement = ll_get(this, i);
+			//acumulador = acumulador + fn(auxElement);
+
+			if(fn(auxElement) != -1)
+			{
+				acumulador = acumulador + fn(auxElement);
+			}
+		}
+	}
+
+	return acumulador;
+}
+
