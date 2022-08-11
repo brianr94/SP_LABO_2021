@@ -14,6 +14,8 @@ int riani_controller_validateLoadFromText(char* path , LinkedList* pArrayListPok
 	char file[51];
 	FILE* pFile;
 
+
+	//en este caso use esto porque admite signos y numeros!! Pero pasarlo a funcion si es posible!!
 	printf("Ingrese el archivo a cargar(incluir el formato en el nombre .csv): ");
 	fflush(stdin);
 	scanf("%s", file);
@@ -165,6 +167,7 @@ int riani_controller_saveAsText(char* path , LinkedList* pArrayListPokemon)
     return retorno;
 }
 
+//modifica un valor del archivo en este caso el valor de ataque
 int riani_controller_modificarValorAtaque(LinkedList* pArrayListPokemon)
 {
 	int retorno=1;
@@ -200,6 +203,7 @@ int riani_controller_modificarValorAtaque(LinkedList* pArrayListPokemon)
     return retorno;
 }
 
+//en esta forma devolvemos en una lista aparte, quedaria probar si funciona mapeando de la misma lista
 LinkedList* riani_controller_asignarNuevoValorAtaque(LinkedList* pArrayListPokemon)
 {
 	//int retorno=-1;
@@ -214,6 +218,8 @@ LinkedList* riani_controller_asignarNuevoValorAtaque(LinkedList* pArrayListPokem
 	return listaMapeada;
 }
 
+//aca usamos el ll_count y creamos variables para guardar lo acumulado por la funcion criterio
+//retornamos y luego utilazamos segun pida el ejercicio.
 int riani_controller_batallaPokemon(LinkedList* pArrayListPokemon)
 {
 	int retorno=-1;
@@ -228,10 +234,10 @@ int riani_controller_batallaPokemon(LinkedList* pArrayListPokemon)
 		pokemonWater=ll_count(pArrayListPokemon, ePokemon_cantidadPokemonWater);
 
 		equipoCompleto= pokemonFuego + pokemonWater;
-		printf("%d\n", pokemonFuego);
-		printf("%d\n", pokemonWater);
+		//printf("%d\n", pokemonFuego);
+		//printf("%d\n", pokemonWater);
 		retorno=0;
-		if(equipoCompleto > 3)
+		if(equipoCompleto >= 3)
 		{
 			printf("\nFelicidades ganamos la batalla Pokemon!!!!\n");
 		}

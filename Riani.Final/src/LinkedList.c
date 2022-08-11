@@ -627,7 +627,7 @@ LinkedList* ll_map(LinkedList* this, void (*fn)(void* element))
 	return this;
 }
 
-
+//Recorre la linkedList y acumula el valor pasado por criterio(UTiliza el retorno de la funcion de criterio como acumulador)
 int ll_count(LinkedList* this, int (*fn)(void* element))
 {
 	int len;
@@ -642,12 +642,8 @@ int ll_count(LinkedList* this, int (*fn)(void* element))
 		for(int i= 0; i<len; i++)
 		{
 			auxElement = ll_get(this, i);
-			//acumulador = acumulador + fn(auxElement);
+			acumulador = acumulador + fn(auxElement);
 
-			if(fn(auxElement) != -1)
-			{
-				acumulador = acumulador + fn(auxElement);
-			}
 		}
 	}
 

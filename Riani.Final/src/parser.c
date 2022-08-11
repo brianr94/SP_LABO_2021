@@ -21,7 +21,9 @@ int parser_pokemonFromText(FILE* pFile , LinkedList* pArrayListPokemon)
 	if(pFile != NULL && pArrayListPokemon != NULL)
 	{
 
-		fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,], %[^,], %[^\n]\n", numero, nombre, tipo, tamanio, ataqueCargado, valorAtaque, varioColor);
+		//en este caso se saca el fscanf porque el arhivo no tiene encabezado!! siempre fijarse eso!!!!
+		//Si tiene encabezado usar, pero primero mirar el ARHIVO!!!
+		//fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,], %[^,], %[^\n]\n", numero, nombre, tipo, tamanio, ataqueCargado, valorAtaque, varioColor);
 
 		do
 		{

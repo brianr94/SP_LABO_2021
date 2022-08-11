@@ -62,7 +62,7 @@ int main(void) {
 				if(flagCargado == 0)
 				{
 
-					if(riani_controller_validateLoadFromText("data.csv", listaPokemon) != -1)
+					if(riani_controller_validateLoadFromText("Data_Pokemones.csv", listaPokemon) != -1)
 					{
 						flagCargado=1;
 					}

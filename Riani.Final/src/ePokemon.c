@@ -289,11 +289,13 @@ ePokemon* ePokemon_buscarPokemonNumero(LinkedList* pArrayPokemon, int numero ,in
 	return pokemon;
 }
 
+//se ingresa un elemento de la lista y modifica el valor especificado
 int ePokemon_modificarValorAtaque(ePokemon* this)
 {
 	int retorno=-1;
 
-	//ePokemon* pokemon;
+	//ePokemon* pokemon; lo sacamos porque no fue necesario usar una estructura para modificar el dato
+	//lo modificamos directo sin usar un intermediario que seria la estructura
 	char AtaqueCargado[50];
 
 
