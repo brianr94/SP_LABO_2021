@@ -75,9 +75,8 @@ int riani_controller_filtrarPorAguaVarioColor(LinkedList* pArrayListPokemon)
 
 			if(listaFiltrada != NULL)
 			{
-				riani_controller_saveAsText("pokemonAguaVarioColor.csv",listaFiltrada);
+				riani_controller_listarPokemones(listaFiltrada);
 				retorno=0;
-				printf("\nLista filtrada y guardada con exito.\n");
 			}
 
 
@@ -153,6 +152,8 @@ int riani_controller_eliminarPokemon(LinkedList* pArrayListPokemon)
 
 	if(pArrayListPokemon != NULL)
 	{
+		printf("\n\nLista de Pokemones en la mochila: \n\n");
+
 		riani_controller_listarPokemones(pArrayListPokemon);
 
 		pedirNumeroValidado(&numeroPokemon, "Ingrese el numero del pokemon a eliminar: ", "Error. Ingrese correctamente el numero: ");
@@ -168,7 +169,8 @@ int riani_controller_eliminarPokemon(LinkedList* pArrayListPokemon)
 			{
 				ll_remove(pArrayListPokemon, index);
 				pokemon=NULL;
-				printf("\nSe elimino correctamente el pokemon de la mochila!!!\n");
+				printf("\nSe elimino correctamente el pokemon de la mochila!!!\n\n");
+				riani_controller_listarPokemones(pArrayListPokemon);
 				retorno=0;
 			}
 			else

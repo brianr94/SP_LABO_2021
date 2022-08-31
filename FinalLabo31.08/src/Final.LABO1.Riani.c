@@ -22,10 +22,10 @@ int main(void) {
 	LinkedList* listaMapeada;
 	int opcion;
 	int flagCargado;
-	int flagOpcion6;
+	int flagOpcion5;
 
 	flagCargado=0;
-	flagOpcion6=0;
+	flagOpcion5=0;
 
 	listaMapeada=ll_newLinkedList();
 	listaPokemon=ll_newLinkedList();
@@ -111,24 +111,40 @@ int main(void) {
 			case 5:
 				if(flagCargado == 1)
 				{
-					printf("\nNuevos valores aignados!!!\n");
-					listaMapeada=riani_controller_asignarNuevoValorAtaque(listaPokemon);
-					if(listaMapeada != NULL)
+					if(flagOpcion5 == 0)
 					{
-						flagOpcion6=1;
-						riani_controller_listarPokemones(listaMapeada);
+						printf("\nNuevos valores aignados!!!\n");
+						listaMapeada=riani_controller_asignarNuevoValorAtaque(listaPokemon);
+						if(listaMapeada != NULL)
+						{
+							flagOpcion5=1;
+							riani_controller_listarPokemones(listaMapeada);
+						}
 					}
+					else
+					{
+						printf("\nLos valores ya fueron asignados!!!!\n");
+					}
+
 				}
 				else
 				{
-					printf("\nPrimero debe cargarse el archivo (opcion 1)!!!\n");
+					printf("\nPrimero debe cargarse el archivo (opcion 1) !!!\n");
 				}
 				break;
 			case 6:
-				if(flagCargado == 1)//preguntar a nathy por la opcion 5 como oblogatoria
+				if(flagCargado == 1)
 				{
-					printf("\nIniciando Batalla Pokemon!!!\n");
-					riani_controller_batallaPokemon(listaMapeada);
+					if(flagOpcion5 == 1)
+					{
+						printf("\nIniciando Batalla Pokemon!!!\n");
+						riani_controller_batallaPokemon(listaMapeada);
+					}
+					else
+					{
+						printf("\nDebe Asignar nuevos valores de ataque(opcion 5), Antes de iniciar la Batalla Pokemon!!!!\n");
+					}
+
 				}
 				else
 				{
@@ -136,7 +152,7 @@ int main(void) {
 				}
 				break;
 			case 7:
-				if(flagCargado == 1 && flagOpcion6==1)
+				if(flagCargado == 1 )
 				{
 
 				}
