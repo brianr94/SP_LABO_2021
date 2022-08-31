@@ -34,7 +34,6 @@ void ePokemon_mapeoAtaqueCargado(void* pokemon)
 {
 	ePokemon* pPokemon;
 	char tipoAux[50];
-	char tamanioAux[50];
 	int valorAtaque;
 	int aumentoPoder;
 

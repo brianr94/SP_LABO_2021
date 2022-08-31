@@ -289,6 +289,7 @@ ePokemon* ePokemon_buscarPokemonNumero(LinkedList* pArrayPokemon, int numero ,in
 	return pokemon;
 }
 
+/*
 //se ingresa un elemento de la lista y modifica el valor especificado
 int ePokemon_modificarValorAtaque(ePokemon* this)
 {
@@ -321,6 +322,7 @@ int ePokemon_modificarValorAtaque(ePokemon* this)
 
 	return retorno;
 }
+*/
 
 void ePokemon_borrarPokemon(ePokemon* this)
 {

@@ -34,26 +34,26 @@ int main(void) {
 	{
 		pedirNumeroEnteroValidado(&opcion,
 											"-------------------------\n"
-											"1. cargar archivo pokemones\n"
-											"2. modificar valor ataque\n"
-											"3. imprimir pokemones\n"
-											"4. filtrar por tipo fuego\n"
-											"5. filtrar por extra grandes de tipo veneno\n"
-											"6. mapear ataque cargado\n"
-											"7. batalla Pokemon\n"
-											"8.\n"
-											"9.\n"
+											"1. Cargar archivo pokemones\n"
+											"2. Eliminar pokemon\n"
+											"3. Imprimir pokemones\n"
+											"4. Filtrar de tipo Agua variocolor\n"
+											"5. Mapear ataque cargado\n"
+											"6. Batalla pokemon\n"
+											"7. \n"
+											"8. \n"
+											"9. \n"
 											"10. Salir\n"
 											"---------------------------\n"
 											"Ingrese una opcion: ",
 											"---------------------------\n"
-											"1. cargar archivo pokemones\n"
-											"2. modificar valor ataque\n"
-											"3. imprimir pokemones\n"
-											"4. filtrar por tipo fuego\n"
-											"5. filtrar por extra grandes de tipo veneno\n"
-											"6. mapear ataque cargado\n"
-											"7. batalla Pokemon\n"
+											"1. Cargar archivo pokemones\n"
+											"2. Eliminar pokemon\n"
+											"3. Imprimir pokemones\n"
+											"4. Filtrar de tipo Agua variocolor\n"
+											"5. Mapear ataque cargado\n"
+											"6. Batalla pokemon\n"
+											"7. \n"
 											"8. \n"
 											"9. \n"
 											"10. Salir\n"
@@ -125,7 +125,7 @@ int main(void) {
 				}
 				break;
 			case 6:
-				if(flagCargado == 1)//preguntar a nathy por la opcion 6 como oblogatoria
+				if(flagCargado == 1)//preguntar a nathy por la opcion 5 como oblogatoria
 				{
 					printf("\nIniciando Batalla Pokemon!!!\n");
 					riani_controller_batallaPokemon(listaMapeada);
@@ -136,7 +136,7 @@ int main(void) {
 				}
 				break;
 			case 7:
-				if(flagCargado == 1 && flagOpcion6==1)//opcion 5 ahora en el nuevo final
+				if(flagCargado == 1 && flagOpcion6==1)
 				{
 
 				}
@@ -144,6 +144,12 @@ int main(void) {
 				{
 					printf("\nPrimero debe cargarse el archivo (opcion 1)!!!\n");
 				}
+				break;
+			case 8:
+
+				break;
+			case 9:
+
 				break;
 			case 10:
 				ll_deleteLinkedList(listaPokemon);
